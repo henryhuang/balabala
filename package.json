@@ -1,23 +1,24 @@
 {
-    "name": "balabala-public",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "node .",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/henryhuang/balabala.git"
-    },
-    "author": "Henry Huang",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/henryhuang/balabala/issues"
-    },
-    "homepage": "https://github.com/henryhuang/balabala#readme",
-    "dependencies": {
-        "express": "^4.16.3"
-    }
+  "name": "balabala-public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "build": "echo 'Build done!'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/henryhuang/balabala.git"
+  },
+  "author": "Henry Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henryhuang/balabala/issues"
+  },
+  "homepage": "https://github.com/henryhuang/balabala#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
