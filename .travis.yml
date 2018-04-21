@@ -12,7 +12,10 @@ before_install:
 - bash ./.travis/clone.sh
 script:
 - npm run build
+deploy:
+- bash ./.travis/deploy.sh
 branches:
   only:
   - dev
   - release
+  - master
