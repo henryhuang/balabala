@@ -7,9 +7,10 @@ cache:
   - node_modules
 addons:
   ssh_known_hosts: github.com
-script:
+before_install:
 - bash ./.travis/init.sh
 - bash ./.travis/clone.sh
+script:
 - npm run build
 - bash ./.travis/deploy.sh
 branches:
