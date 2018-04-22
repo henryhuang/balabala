@@ -20,3 +20,6 @@ echo $branchName > branch
 
 # replace ${branch} to branch name in ecosystem.config.js
 sed -i 's/${branch}/'$branchName'/g' ecosystem.config.js
+
+# clone built project
+git clone git@bitbucket.org:imluckyman/balabala-builded.git .build

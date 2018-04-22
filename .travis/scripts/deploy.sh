@@ -10,9 +10,9 @@ echo branch name is $branchName
 
 # push to built project
 cd .build/
-git init
+git add .
+git commit -m "built code"
 git checkout -b $branchName
-git remote add origin git@bitbucket.org:imluckyman/balabala-builded.git
 # force push the files
 git push origin $branchName -f
 
