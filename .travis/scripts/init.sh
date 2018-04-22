@@ -26,6 +26,10 @@ cat config >> ~/.ssh/config
 
 ssh-keyscan $serverHost >> ~/.ssh/known_hosts
 
+echo "============== 1 =============="
+echo ~/.ssh/known_hosts
+echo "============== 1 =============="
+
 #ssh-add deploy_key
 #ssh-add server_key
 
