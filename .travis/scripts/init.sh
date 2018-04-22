@@ -8,18 +8,23 @@ cat ~/.ssh/config
 echo "====2"
 
 # import ssh keys
-openssl aes-256-cbc -K $encrypted_038f56157259_key -iv $encrypted_038f56157259_iv -in ./.travis/keys.zip.enc -out keys.zip -d
+openssl aes-256-cbc -K $encrypted_9ece5568f913_key -iv $encrypted_9ece5568f913_iv -in ./.travis/assets.zip.enc -out assets.zip -d
 
-unzip keys.zip
+unzip assets.zip
 
 # Start SSH agent
-eval $(ssh-agent -s)
+#eval $(ssh-agent -s)
 
 chmod 600 deploy_key
 chmod 600 server_key
 
-ssh-add deploy_key
-ssh-add server_key
+cp deploy_key ~/.ssh/
+cp server_key ~/.ssh/
+
+cat config >> ~/.ssh/config
+
+#ssh-add deploy_key
+#ssh-add server_key
 
 echo "Import ssh keys done"
 echo "Finish init."

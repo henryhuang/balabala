@@ -1,7 +1,5 @@
 node_modules/
-.travis/deploy_key
-.travis/server_key
+.travis/assets/
 .travis/keys.zip
-.travis/test.sh
 .build/
 src/secret

@@ -10,11 +10,11 @@ addons:
   - github.com
   - bitbucket.org
 before_install:
-- bash ./.travis/init.sh
-- bash ./.travis/clone.sh
+- bash ./.travis/scripts/init.sh
+- bash ./.travis/scripts/clone.sh
 script:
 - npm run build
-- bash ./.travis/deploy.sh
+- bash ./.travis/scripts/deploy.sh
 branches:
   only:
   - dev
