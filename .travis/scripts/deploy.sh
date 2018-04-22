@@ -16,6 +16,9 @@ git checkout -b $branchName
 # force push the files
 git push origin $branchName -f
 
+# wait 10 seconds
+sleep 10s
+
 # TODO now deploy all, in the future, will decided by trigger branch
 cd ..
 
