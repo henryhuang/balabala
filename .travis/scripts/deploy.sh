@@ -3,9 +3,11 @@
 echo "Start post..."
 
 # copy ecosystem.config.js to .build
-cp ecosystem.config.js ./build/
+cp ecosystem.config.js .build/
 
-branchName=cat branch
+branchName=`cat branch`
+echo branch name is $branchName
+
 # push to built project
 cd .build/
 git init
