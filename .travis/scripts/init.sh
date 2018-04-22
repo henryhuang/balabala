@@ -17,7 +17,14 @@ chmod 600 server_key
 cp deploy_key ~/.ssh/
 cp server_key ~/.ssh/
 
+# get server host
+serverHost=`cat server_host`
+# replace all server_host placeholder in config file
+sed -i 's/${server_host}/'$serverHost'/g' config
+# append to ~/.ssh/config file
 cat config >> ~/.ssh/config
+
+ssh-keyscan $serverHost >> ~/.ssh/known_hosts
 
 #ssh-add deploy_key
 #ssh-add server_key

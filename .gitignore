@@ -1,5 +1,5 @@
 node_modules/
 .travis/assets/
-.travis/keys.zip
+.travis/assets.zip
 .build/
 src/secret
