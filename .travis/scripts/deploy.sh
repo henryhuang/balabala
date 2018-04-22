@@ -16,6 +16,10 @@ git push origin $branchName -f
 
 # TODO now deploy all, in the future, will decided by trigger branch
 cd ..
+
+pm2 deploy ecosystem.config.js development setup
 pm2 deploy ecosystem.config.js development
+
+pm2 deploy ecosystem.config.js production setup
 pm2 deploy ecosystem.config.js production
 
