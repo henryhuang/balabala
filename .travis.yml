@@ -10,7 +10,6 @@ addons:
   - github.com
   - bitbucket.org
 before_install:
-- openssl aes-256-cbc -K $encrypted_038f56157259_key -iv $encrypted_038f56157259_iv -in .travis/assets.zip.enc -out assets.zip -d
 - npm install -g npx
 - npm install -g pm2
 - bash ./.travis/scripts/init.sh

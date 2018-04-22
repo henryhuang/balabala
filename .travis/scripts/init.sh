@@ -4,7 +4,7 @@ echo "Start init..."
 # how to encrypt sensitive files: https://docs.travis-ci.com/user/encrypting-files/
 
 # import ssh keys
-openssl aes-256-cbc -K $encrypted_9ece5568f913_key -iv $encrypted_9ece5568f913_iv -in ./.travis/assets.zip.enc -out assets.zip -d
+openssl aes-256-cbc -K $encrypted_038f56157259_key -iv $encrypted_038f56157259_iv -in .travis/assets.zip.enc -out assets.zip -d
 
 unzip assets.zip
 
