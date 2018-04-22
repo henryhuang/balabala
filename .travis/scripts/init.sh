@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Start init..."
+echo branch is $TRAVIS_BRANCH
 # how to encrypt sensitive files: https://docs.travis-ci.com/user/encrypting-files/
 
 # import ssh keys
