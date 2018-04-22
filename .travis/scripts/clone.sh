@@ -13,10 +13,10 @@ mv ./secret ./src/
 timestamp() {
   date "+%Y%m%d%H%M%S_%s"
 }
-branchName=t_`timestamp`
+branchName=b_`timestamp`
 echo branch is $branchName
 # save branch name to temp file
 echo $branchName > branch
 
 # replace ${branch} to branch name in ecosystem.config.js
-sed -i '' 's/${branch}/'$branchName'/g' ecosystem.config.js
+sed -i 's/${branch}/'$branchName'/g' ecosystem.config.js
