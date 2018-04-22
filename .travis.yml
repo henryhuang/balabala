@@ -10,7 +10,7 @@ addons:
   - github.com
   - bitbucket.org
 before_install:
-- npm install -g babel-cli
+- npm install -g npx
 - npm install -g pm2
 - bash ./.travis/scripts/init.sh
 - bash ./.travis/scripts/clone.sh
