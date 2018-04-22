@@ -4,6 +4,9 @@ echo "Start clone..."
 
 git clone git@bitbucket.org:imluckyman/balabala-secret.git secret
 
+# test
+cat ./secret/ecosystem.config.js
+
 # move ecosystem.config.js to project root folder
 mv ./secret/ecosystem.config.js .
 # move secret folder under src folder
