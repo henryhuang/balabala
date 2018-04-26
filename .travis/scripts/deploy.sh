@@ -28,9 +28,9 @@ echo will deploy according to travis branch $travisBranch
 
 if [$travisBranch == "master" || $travisBranch == "release"]
 then
-    pm2 deploy ecosystem.config.js production setup
+#    pm2 deploy ecosystem.config.js production setup
     pm2 deploy ecosystem.config.js production
 else
-    pm2 deploy ecosystem.config.js development setup
+#    pm2 deploy ecosystem.config.js development setup
     pm2 deploy ecosystem.config.js development
 fi
