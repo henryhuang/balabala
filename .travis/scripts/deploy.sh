@@ -26,11 +26,26 @@ travisBranch=$TRAVIS_BRANCH
 
 echo will deploy according to travis branch $travisBranch
 
-if [$travisBranch == "master" || $travisBranch == "release"]
+serverHost=`cat server_host`
+remoteCheckPath=`DEPLOYING=true BRANCH=$travisBranch node ecosystem.config.js`
+
+if [ "$travisBranch" = "master" -o "$travisBranch" = "release" ]
 then
-#    pm2 deploy ecosystem.config.js production setup
+    if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
+    then
+        echo "File exists"
+    else
+        echo "File does not exist"
+        pm2 deploy ecosystem.config.js production setup
+    fi
     pm2 deploy ecosystem.config.js production
 else
-#    pm2 deploy ecosystem.config.js development setup
+    if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
+    then
+        echo "File exists"
+    else
+        echo "File does not exist"
+        pm2 deploy ecosystem.config.js development setup
+    fi
     pm2 deploy ecosystem.config.js development
 fi
