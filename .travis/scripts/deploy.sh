@@ -19,12 +19,18 @@ git push origin $branchName -f
 # wait 10 seconds
 sleep 10s
 
-# TODO now deploy all, in the future, will decided by trigger branch
 cd ..
 
-pm2 deploy ecosystem.config.js development setup
-pm2 deploy ecosystem.config.js development
+# TODO now deploy all, in the future, will decided by trigger branch
+travisBranch=$TRAVIS_BRANCH
 
-pm2 deploy ecosystem.config.js production setup
-pm2 deploy ecosystem.config.js production
+echo will deploy according to travis branch $travisBranch
 
+if [$travisBranch == "master" || $travisBranch == "release"]
+then
+#    pm2 deploy ecosystem.config.js production setup
+    pm2 deploy ecosystem.config.js production
+else
+#    pm2 deploy ecosystem.config.js development setup
+    pm2 deploy ecosystem.config.js development
+fi
