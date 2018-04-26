@@ -26,11 +26,15 @@ travisBranch=$TRAVIS_BRANCH
 
 echo will deploy according to travis branch $travisBranch
 
-if [$travisBranch == "master" || $travisBranch == "release"]
+if [ "$travisBranch" = "master" -o "$travisBranch" = "release" ]
 then
 #    pm2 deploy ecosystem.config.js production setup
-    pm2 deploy ecosystem.config.js production
+#    pm2 deploy ecosystem.config.js production
+    prevCommit=pm2 deploy ecosystem.config.js production list
+    echo production prev commit is $preCommit
 else
 #    pm2 deploy ecosystem.config.js development setup
-    pm2 deploy ecosystem.config.js development
+#    pm2 deploy ecosystem.config.js development
+    prevCommit=pm2 deploy ecosystem.config.js development list
+    echo production prev commit is $preCommit
 fi
