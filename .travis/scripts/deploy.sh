@@ -17,7 +17,10 @@ git checkout -b $branchName
 git push origin $branchName -f
 
 # wait 20 seconds
-sleep 20s
+sleepTime=30s
+echo start! sleep $sleepTime
+sleep $sleepTime
+echo done! sleep $sleepTime
 
 cd ..
 
