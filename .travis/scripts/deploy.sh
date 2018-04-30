@@ -43,18 +43,20 @@ then
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
         echo "File exists"
+        pm2 deploy ecosystem.config.js production update
     else
         echo "File does not exist"
         pm2 deploy ecosystem.config.js production setup
     fi
-    pm2 deploy ecosystem.config.js production --force
+    pm2 deploy ecosystem.config.js production
 else
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
         echo "File exists"
+        pm2 deploy ecosystem.config.js development update
     else
         echo "File does not exist"
         pm2 deploy ecosystem.config.js development setup
     fi
-    pm2 deploy ecosystem.config.js development --force
+    pm2 deploy ecosystem.config.js development
 fi
