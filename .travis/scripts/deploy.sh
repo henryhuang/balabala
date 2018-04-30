@@ -16,19 +16,13 @@ git checkout -b $branchName
 # force push the files
 git push origin $branchName -f
 
-# wait 20 seconds
-sleepTime=30s
+# wait 10 seconds
+sleepTime=10s
 echo start! sleep $sleepTime
 sleep $sleepTime
 echo done! sleep $sleepTime
 
 cd ..
-
-# check clone
-repo=git@bitbucket.org:imluckyman/balabala-builded.git
-echo Start! git clone --depth=5 --branch $branchName $repo ./source
-git clone --depth=5 --branch $branchName $repo ./source
-echo Done! git clone --depth=5 --branch $branchName $repo ./source
 
 # TODO now deploy all, in the future, will decided by trigger branch
 travisBranch=$TRAVIS_BRANCH
@@ -43,7 +37,6 @@ then
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
         echo "File exists"
-        pm2 deploy ecosystem.config.js production update
     else
         echo "File does not exist"
         pm2 deploy ecosystem.config.js production setup
@@ -53,7 +46,6 @@ else
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
         echo "File exists"
-        pm2 deploy ecosystem.config.js development update
     else
         echo "File does not exist"
         pm2 deploy ecosystem.config.js development setup
