@@ -47,7 +47,7 @@ then
         echo "File does not exist"
         pm2 deploy ecosystem.config.js production setup
     fi
-    pm2 deploy ecosystem.config.js production
+    pm2 deploy ecosystem.config.js production --force
 else
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
@@ -56,5 +56,5 @@ else
         echo "File does not exist"
         pm2 deploy ecosystem.config.js development setup
     fi
-    pm2 deploy ecosystem.config.js development
+    pm2 deploy ecosystem.config.js development --force
 fi
