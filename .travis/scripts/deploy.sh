@@ -16,8 +16,8 @@ git checkout -b $branchName
 # force push the files
 git push origin $branchName -f
 
-# wait 10 seconds
-sleep 10s
+# wait 20 seconds
+sleep 20s
 
 cd ..
 
