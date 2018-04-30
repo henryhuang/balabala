@@ -24,6 +24,12 @@ echo done! sleep $sleepTime
 
 cd ..
 
+# check clone
+repo=git@bitbucket.org:imluckyman/balabala-builded.git
+echo Start! git clone --depth=5 --branch $branchName $repo ./source
+git clone --depth=5 --branch $branchName $repo ./source
+echo Done! git clone --depth=5 --branch $branchName $repo ./source
+
 # TODO now deploy all, in the future, will decided by trigger branch
 travisBranch=$TRAVIS_BRANCH
 
