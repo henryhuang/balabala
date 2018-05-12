@@ -34,23 +34,20 @@ remoteCheckPath=`DEPLOYING=true BRANCH=$travisBranch node ecosystem.config.js`
 
 if [ "$travisBranch" = "master" -o "$travisBranch" = "release" ]
 then
-    if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
-    then
-        echo "File exists"
-        pm2 deploy production exec "git pull"
-    else
-        echo "File does not exist"
-        pm2 deploy production setup
-    fi
-    pm2 deploy production
+    devEnv="production"
 else
-    if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
-    then
-        echo "File exists"
-        pm2 deploy development exec "git pull"
-    else
-        echo "File does not exist"
-        pm2 deploy development setup
-    fi
-    pm2 deploy development
+    devEnv="development"
 fi
+
+echo development environment is $devEnv
+
+if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
+then
+    echo "File exists"
+    pm2 deploy $devEnv exec "git pull"
+else
+    echo "File does not exist"
+    pm2 deploy $devEnv setup
+fi
+
+pm2 deploy $devEnv
