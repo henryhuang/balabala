@@ -40,17 +40,17 @@ then
         pm2 deploy production exec "git pull"
     else
         echo "File does not exist"
-        pm2 deploy ecosystem.config.js production setup
+        pm2 deploy production setup
     fi
-    pm2 deploy ecosystem.config.js production
+    pm2 deploy production
 else
     if ssh $serverHost stat $remoteCheckPath \> /dev/null 2\>\&1
     then
         echo "File exists"
-        pm2 deploy production exec "git pull"
+        pm2 deploy development exec "git pull"
     else
         echo "File does not exist"
-        pm2 deploy ecosystem.config.js development setup
+        pm2 deploy development setup
     fi
-    pm2 deploy ecosystem.config.js development
+    pm2 deploy development
 fi
